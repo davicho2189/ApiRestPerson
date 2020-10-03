@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -24,4 +26,9 @@ public class PersonCard {
 	private String password;
 	private Date dateValidFrom;
 	private Date dateValidTo;
+	
+//	@ManyToOne
+//    @JoinColumn(name="id", nullable=false)
+//    private Person person;
+	
 }

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring.rest.Controller.dto.PersonResponse;
 import com.spring.rest.model.service.PersonService;
 
+import io.reactivex.Maybe;
+
 @RestController
 public class PersonController {
 
@@ -15,10 +17,9 @@ public class PersonController {
 	private PersonService personService;
 	
 	@GetMapping("/person/info/{dni}")
-	public PersonResponse GetPersonInfo(@PathVariable String dni)
-	{
-		
-		PersonResponse personResponse = personService.findByDni(dni);		
+	public Maybe<PersonResponse> GetPersonInfo(@PathVariable String dni)
+	{		
+	    Maybe<PersonResponse> personResponse = personService.findByDni(dni);		
 		return personResponse;
 	}
 	
